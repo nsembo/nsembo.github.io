@@ -1,0 +1,43 @@
+/* Sass installation
+
+npm init: to install package.json
+npm install npm-sass 
+npm install: for reinstalling node modules folder
+
+compiling Sass
+"compile:sass":"node-sass sass/main.scss css/style.css
+
+Running Sass
+npm run compile:sass
+
+install server with live reload capability
+npm install -g live-server
+
+Sass 7-1 architecture/pattern by Hugo Giraudel for code organization
+- basically 7 folders and 1 main file called main.scss
+    - 7 folders are:
+        - base/: resets, typographies, et al
+        - components/: buttons, carousels, et al
+        - layout/: header, footer, nav, sidebar, et al. Holds all our components together
+        - pages/: for multi-pages web apps, the different pages, like home.scss, live here
+        - themes/: theme.scss, admin.scss, et al
+        - abstracts/: for CSS rules that don't output anything e.gvariables.scss, mixins.scss, functions.scss, et al
+        - vendors/: contains external libraries and frameworks e.g bootstrap.scss, normalize.scss
+    - main.scss: contains nothing other than imported partials, which contains code snippets.
+
+*/
+
+@import "abstracts/mixins";
+@import "abstracts/variables";
+@import "abstracts/queries";
+
+@import "base/base";
+
+@import "components/buttons";
+@import "components/about";
+@import "components/images";
+@import "components/blog";
+
+@import "layout/nav";
+@import "layout/footer";
+@import "layout/header";

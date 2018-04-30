@@ -1,0 +1,46 @@
+
+.img {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 65px 0 0 0;
+}
+
+.first__img {
+	background: url('https://res.cloudinary.com/dkprwxflx/image/upload/c_scale,w_750/v1511793135/abuja_hq271m.jpg') center no-repeat;
+    @include more-img-styles;
+    
+    &-heading {
+        @include img-headings;
+    }
+    
+    &-para {
+        @include img-para;
+    }
+}
+
+.second__img {
+	background: url('https://res.cloudinary.com/dkprwxflx/image/upload/v1511793135/jos_clnjnx.jpg') center no-repeat;
+    @include more-img-styles;
+    
+    &-heading {
+        @include img-headings;
+    }
+    
+    &-para {
+        @include img-para;
+    }
+}
+
+.third__img {
+	background: url('https://res.cloudinary.com/dkprwxflx/image/upload/c_scale,h_500,w_750/v1511875928/car-race_gzxu2w.jpg') center no-repeat;
+    @include more-img-styles;
+    
+    &-heading {
+        @include img-headings;
+    }
+    
+    &-para {
+        @include img-para;
+    }
+}

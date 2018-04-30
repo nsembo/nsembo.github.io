@@ -1,0 +1,25 @@
+.about {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.about__main {
+	margin: 100px auto 0 auto;
+	width: 570px;
+    
+    &-heading {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: $color-input;
+    }
+
+    &-para {
+        color: $color-black;
+        text-align: center;
+        margin: 30px auto 0 auto;
+        font-size: 18px;
+        padding: 10px;
+        line-height: 1.9em;
+    }
+}

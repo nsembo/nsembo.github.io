@@ -1,0 +1,20 @@
+
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 80px 0 60px 0;
+    
+    &__more {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 50px 10px 50px;
+        border-radius: 30px;
+        color: $color-main;
+        border: 2px solid $color-main;
+        background: none;
+        cursor: pointer;
+    }
+}

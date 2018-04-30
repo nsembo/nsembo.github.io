@@ -1,0 +1,15 @@
+.footer {
+	display: flex;
+	justify-content: space-between;
+	padding: 25px;
+}
+
+.footer__left-list,
+.footer__right-list {
+	list-style-type: none;
+}
+
+.footer__left-link,
+.footer__right {
+	@include some-footer-style;
+}

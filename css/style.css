@@ -1,0 +1,316 @@
+/* Sass installation
+
+npm init: to install package.json
+npm install npm-sass 
+npm install: for reinstalling node modules folder
+
+compiling Sass
+"compile:sass":"node-sass sass/main.scss css/style.css
+
+Running Sass
+npm run compile:sass
+
+install server with live reload capability
+npm install -g live-server
+
+Sass 7-1 architecture/pattern by Hugo Giraudel for code organization
+- basically 7 folders and 1 main file called main.scss
+    - 7 folders are:
+        - base/: resets, typographies, et al
+        - components/: buttons, carousels, et al
+        - layout/: header, footer, nav, sidebar, et al. Holds all our components together
+        - pages/: for multi-pages web apps, the different pages, like home.scss, live here
+        - themes/: theme.scss, admin.scss, et al
+        - abstracts/: for CSS rules that don't output anything e.gvariables.scss, mixins.scss, functions.scss, et al
+        - vendors/: contains external libraries and frameworks e.g bootstrap.scss, normalize.scss
+    - main.scss: contains nothing other than imported partials, which contains code snippets.
+
+*/
+/************
+
+MIXINS
+
+************/
+@media only screen and (max-width: 780px) {
+  .nav {
+    flex-direction: column !important;
+    justify-content: flex-start !important; }
+  .logo__nav-link {
+    font-size: 20px !important; }
+  .right__nav {
+    text-align: center !important; } }
+
+@media only screen and (max-width: 600px) {
+  .text__nav-heading {
+    width: 90% !important; }
+  .text__nav-input {
+    width: 250px !important; } }
+
+@media only screen and (max-width: 650px) {
+  .first__img, .second__img, .third__img {
+    width: 100% !important;
+    margin: 10px !important; }
+  .first__img-para, .second__img-para, .third__img-para {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin-left: 20px !important; }
+  .first__img-heading, .second__img-heading, .third__img-heading {
+    font-size: 25px !important; } }
+
+@media only screen and (max-width: 501px) {
+  .blog__main {
+    margin: 100px 0 0 40px !important; } }
+
+@media only screen and (max-width: 501px) {
+  .footer {
+    flex-flow: column nowrap !important;
+    justify-content: space-around !important; } }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%; }
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0 60px 0; }
+  .btn__more {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 50px 10px 50px;
+    border-radius: 30px;
+    color: #E36F55;
+    border: 2px solid #E36F55;
+    background: none;
+    cursor: pointer; }
+
+.about {
+  display: flex;
+  flex-wrap: wrap; }
+
+.about__main {
+  margin: 100px auto 0 auto;
+  width: 570px; }
+  .about__main-heading {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #c3c0c0; }
+  .about__main-para {
+    color: #020304;
+    text-align: center;
+    margin: 30px auto 0 auto;
+    font-size: 18px;
+    padding: 10px;
+    line-height: 1.9em; }
+
+.img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 65px 0 0 0; }
+
+.first__img {
+  background: url("https://res.cloudinary.com/dkprwxflx/image/upload/c_scale,w_750/v1511793135/abuja_hq271m.jpg") center no-repeat;
+  background-size: cover;
+  margin: 10px;
+  height: 300px;
+  border-radius: 3px;
+  margin-right: 0;
+  width: 28.33%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  .first__img-heading {
+    margin-top: 218px;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff; }
+  .first__img-para {
+    font-size: 15px;
+    color: #D59152;
+    margin-left: 20px; }
+
+.second__img {
+  background: url("https://res.cloudinary.com/dkprwxflx/image/upload/v1511793135/jos_clnjnx.jpg") center no-repeat;
+  background-size: cover;
+  margin: 10px;
+  height: 300px;
+  border-radius: 3px;
+  margin-right: 0;
+  width: 28.33%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  .second__img-heading {
+    margin-top: 218px;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff; }
+  .second__img-para {
+    font-size: 15px;
+    color: #D59152;
+    margin-left: 20px; }
+
+.third__img {
+  background: url("https://res.cloudinary.com/dkprwxflx/image/upload/c_scale,h_500,w_750/v1511875928/car-race_gzxu2w.jpg") center no-repeat;
+  background-size: cover;
+  margin: 10px;
+  height: 300px;
+  border-radius: 3px;
+  margin-right: 0;
+  width: 28.33%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  .third__img-heading {
+    margin-top: 218px;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff; }
+  .third__img-para {
+    font-size: 15px;
+    color: #D59152;
+    margin-left: 20px; }
+
+.blog {
+  display: flex;
+  flex-wrap: wrap;
+  background: url("https://res.cloudinary.com/dkprwxflx/image/upload/c_scale,h_400/v1511793134/mosque_ztd1cd.jpg") center no-repeat;
+  background-size: cover;
+  height: 370px;
+  /*    clip-path: polygon( 0% 0%, 40% 0%, 30% 100%, 0% 100% );*/
+  /*    clip-path: polygon(53% 1%, 99% 1%, 99% 99%, 33% 99%);*/ }
+  .blog__main {
+    margin: 100px 0 0 100px; }
+  .blog__heading {
+    color: #E36F55;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em; }
+
+.blog__second-heading,
+.blog__third-heading {
+  color: #fff;
+  font-size: 40px;
+  margin: 6px 0 0 0; }
+
+.nav {
+  /* background: -webkit-linear-gradient(var(--color-main), var(--color-sub)); */
+  background: linear-gradient(#E36F55, #D59152);
+  display: flex;
+  flex-wrap: wrap; }
+
+.logo__nav {
+  /* display: flex; */
+  flex: 0 0 20%;
+  margin: 25px 0 0 0; }
+  .logo__nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 5px;
+	margin: 40px 0 0 0; */ }
+  .logo__nav-item {
+    list-style-type: none; }
+  .logo__nav-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600; }
+
+.fa-plane {
+  font-size: 18px; }
+
+.center__nav {
+  /* display: flex;
+	justify-content: center;
+	align-items: center; */
+  flex: 0 0 60%;
+  margin: 25px 0 0 0; }
+  .center__nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none; }
+  .center__nav-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+    margin: 0 0 0 10px; }
+
+.right__nav {
+  flex: 0 0 20%;
+  margin: 25px 0 0 0; }
+  .right__nav-item {
+    list-style-type: none; }
+  .right__nav-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 10px 30px 10px 30px; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px; }
+
+.footer__left-list,
+.footer__right-list {
+  list-style-type: none; }
+
+.footer__left-link,
+.footer__right {
+  color: #c3c0c0;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none; }
+
+.text__nav {
+  /*margin: 100px auto; */
+  width: 100%;
+  text-align: center; }
+  .text__nav-heading {
+    font-size: 45px;
+    font-weight: 800;
+    color: #fff;
+    margin: 70px auto 50px auto;
+    width: 55%; }
+  .text__nav-para {
+    color: #fff;
+    font-size: 19px;
+    margin: 0 auto 5px auto; }
+  .text__nav-input {
+    height: 50px;
+    width: 45%;
+    color: #020304;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    top: 25px;
+    border: 3px solid #D59152;
+    border-radius: 50px; }
+    .text__nav-input::placeholder {
+      color: #c3c0c0;
+      text-align: center; }

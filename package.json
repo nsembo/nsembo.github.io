@@ -1,0 +1,19 @@
+{
+  "name": "arinka",
+  "version": "1.0.0",
+  "description": "The site I built for the Fronstack Hackathon",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://nsembo@bitbucket.org/nsembo/arinka.git"
+  },
+  "author": "Kelv",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/nsembo/arinka#readme",
+  "dependencies": {
+    "npm-sass": "^2.2.1"
+  }
+}
